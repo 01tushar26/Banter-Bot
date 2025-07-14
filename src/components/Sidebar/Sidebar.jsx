@@ -53,6 +53,12 @@ const loadPrompt = async (prompt)=>{
         {extended?<p>Settings</p>:null}
 
       </div>
+      <div className="bottom-item recent-entry">
+        
+        {extended?<p>@2025 Copyright</p>:null}
+
+      </div>
+      
     </div>
 
     </div>
