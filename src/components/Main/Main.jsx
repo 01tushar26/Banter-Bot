@@ -69,8 +69,7 @@ const {onSent,recentPrompt,showResult,loading,resultData, setInput,input}= useCo
            </div>
           </div>
           <p className="bottom-info">
-            this might genrate wrong info dont fully rely on it 
-
+            Banter-Bot can make mistake.Check important info.
           </p>
         </div>
     </div>
