@@ -1,0 +1,31 @@
+from sklearn.ensemble import IsolationForest
+from sklearn.preprocessing import StandardScaler
+from sklearn.datasets import fetch_kddcup99
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+
+data = fetch_kddcup99(subset='SA', percent10=True, shuffle=True)
+X_raw = pd.DataFrame(data.data)
+
+X_numeric = X_raw.apply(lambda col: pd.to_numeric(col, errors='coerce'))
+
+X_clean = X_numeric.dropna(axis=1)
+
+X_scaled = StandardScaler().fit_transform(X_clean)
+
+model = IsolationForest(contamination=0.05, random_state=42)
+y_pred = model.fit_predict(X_scaled)
+anomalies = y_pred == -1
+print("Anomalies detected:", anomalies.sum())
+
+X_pca = PCA(n_components=2).fit_transform(X_scaled)
+
+plt.figure(figsize=(6, 5))
+plt.scatter(X_pca[~anomalies, 0], X_pca[~anomalies, 1], s=2, label="Normal")
+plt.scatter(X_pca[anomalies, 0], X_pca[anomalies, 1], s=2, color='red', label="Anomaly")
+plt.title("Network Anomaly Detection (KDD 99 + Isolation Forest)")
+plt.legend()
+plt.grid(True)
+plt.show()
