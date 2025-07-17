@@ -55,3 +55,5 @@ async function runChat(prompt) {
 }
 
 export default runChat;
+
+// gramatical and 10n recent chats suggestion q
