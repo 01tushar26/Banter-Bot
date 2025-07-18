@@ -11,7 +11,7 @@ const {onSent,recentPrompt,showResult,loading,resultData, setInput,input}= useCo
   return (
    <div className="main">
     <div className="nav">
-        <p>Banter Bot</p>
+        <img src="generated-image.png" alt="" />
       <Link to="/login" > <img src="generated-image.png" alt="" /> </Link>
     </div>
     <div className="main-container">
@@ -46,7 +46,7 @@ const {onSent,recentPrompt,showResult,loading,resultData, setInput,input}= useCo
             <p>{recentPrompt}</p>
           </div>
           <div className="result-data">
-            <img src={assets.gemini_icon} alt="" />
+            <img src="generated-image.png" alt="" />
             {loading
             ?<div className='loader'>
                <hr />
