@@ -12,7 +12,7 @@ const {onSent,recentPrompt,showResult,loading,resultData, setInput,input}= useCo
    <div className="main">
     <div className="nav">
         <p>Banter Bot</p>
-      <Link to="/login" > <img src="hwll.jpg" alt="" /> </Link>
+      <Link to="/login" > <img src="generated-image.png" alt="" /> </Link>
     </div>
     <div className="main-container">
         {!showResult
